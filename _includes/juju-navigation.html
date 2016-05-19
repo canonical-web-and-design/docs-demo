@@ -1,0 +1,184 @@
+ <ul>
+<!--- SECTION --->
+    <li class="section"><h4 class="header toggle-target">User Guide</h4>
+        <ul>
+        <li><a href="{{ site.baseurl }}/juju/about-juju">About Juju</a></li>
+        <li><a href="{{ site.baseurl }}/juju/introducing-2">Introducing Juju 2.0!</a></li>
+        <li><a href="{{ site.baseurl }}/juju/getting-started">Getting Started</a></li>
+        <li><a href="{{ site.baseurl }}/juju/juju-concepts">Juju concepts</a></li>
+        <li><a href="{{ site.baseurl }}/juju/getting-started-general">Install &amp; Configure</a></li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/clouds">Clouds</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/credentials">Credentials</a></li>
+            </ul>
+        </li>
+        <li><a href="{{ site.baseurl }}/juju/controllers">Controllers</a></li>
+        <li><a href="{{ site.baseurl }}/juju/models">Models</a></li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/charms">Charms & Services</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/charms-deploying">Deploying Services</a></li>
+                <li><a href="{{ site.baseurl }}/juju/charms-constraints">Using constraints</a></li>
+                <li><a href="{{ site.baseurl }}/juju/charms-config">Service configuration</a></li>
+                <li><a href="{{ site.baseurl }}/juju/charms-relations">Service Relations</a></li>
+                <li><a href="{{ site.baseurl }}/juju/charms-exposing">Exposing Services</a></li>
+                <li><a href="{{ site.baseurl }}/juju/charms-scaling">Scaling Services</a></li>
+                <li><a href="{{ site.baseurl }}/juju/charms-destroy">Removing Services &amp; Units</a></li>
+                <li><a href="{{ site.baseurl }}/juju/charms-service-groups">Groups of Services</a></li>
+                <li><a href="{{ site.baseurl }}/juju/charms-ha">Charm high availability</a></li>
+                <li><a href="{{ site.baseurl }}/juju/charms-bundles">Using bundles</a></li>
+                <li><a href="{{ site.baseurl }}/juju/charms-working-with-units">Working with Units</a></li>
+                <li><a href="{{ site.baseurl }}/juju/actions">Working with Actions</a></li>
+                <li><a href="{{ site.baseurl }}/juju/charms-storage">Using storage</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/users">Users</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/users-auth">Authentication</a></li>
+                <li><a href="{{ site.baseurl }}/juju/users-creating">Creating users</a></li>
+                <li><a href="{{ site.baseurl }}/juju/users-models">Users and models</a></li>
+                <li><a href="{{ site.baseurl }}/juju/users-manage">User management</a></li>
+                <li><a href="{{ site.baseurl }}/juju/users-sample-commands">Sample commands</a></li>
+                <li><a href="{{ site.baseurl }}/juju/users-workflows">Workflow scenarios</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/juju-managing">Managing Juju</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/juju-block">Restrict/block Juju commands</a></li>
+                <li><a href="{{ site.baseurl }}/juju/juju-centos">CentOS support</a></li>
+                <li><a href="{{ site.baseurl }}/juju/network-spaces">Network spaces</a></li>
+                <li><a href="{{ site.baseurl }}/juju/juju-misc">Miscellaneous</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/howto">How to...</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/howto-node">Deploy a Node.js app</a></li>
+                <li><a href="{{ site.baseurl }}/juju/howto-rails">Test and deploy on Rails</a></li>
+                <li><a href="{{ site.baseurl }}/juju/howto-privatecloud">Set up a Private Cloud</a></li>
+                <li><a href="{{ site.baseurl }}/juju/howto-vagrant-workflow">Vagrant Workflow</a></li>
+                <li><a href="{{ site.baseurl }}/juju/howto-drupal-iis">Deploy Drupal Windows charm</a></li>
+            </ul>
+        </li>
+        <li><a href="{{ site.baseurl }}/juju/troubleshooting">Troubleshooting</a></li>
+    </ul>
+<!--- SECTION --->
+    <li class="section"><h4 class="header toggle-target">Developer Guide</h4>
+        <ul>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/developer-getting-started">Getting Started</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/developer-getting-started#install-libraries-and-tools">Prerequisites and Tools</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-getting-started#designing-your-charm">Designing your Charm</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-getting-started#writing-your-charm">Writing your Charm</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-getting-started#testing-your-charm">Testing your Charm</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/developer-event-cycle">Event Cycle</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/developer-event-cycle#handling-reactive-states">Handling Reactive States</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/developer-layers">Charm Layers</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/developer-layers#what-are-layers?">What are Layers</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-layers#states">States</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-layer-example">How to Write a Layer</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/developer-layers-interfaces">Interface Layers</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/developer-layers-interfaces#design-considerations">Design Considerations</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-layers-interfaces#communication-scopes">Communication Scopes</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-layers-interfaces#writing-an-interface-layer">Writing an Interface</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/developer-leadership">Implementing Leadership</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/developer-leadership#leadership-hooks">Leadership Hooks</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-leadership#leadership-tools">Leadership Tools</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-leadership#leadership-howtos">Leadership Howtos</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/developer-actions">Implementing Actions</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/developer-actions#implementing-actions">Defining Actions</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-actions#action-tools">Action Tools</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/developer-storage">Implementing Storage</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/developer-storage#adding-storage">Adding Storage</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-storage#storage-hooks">Storage Hooks</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/developer-testing">Writing Tests</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/developer-testing#charm-proof">Charm Proof</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-testing#amulet">Amulet</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-testing#bundletester">BundleTester</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/developer-debugging">Debugging</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/developer-debug-layers">Debugging Layers</li></a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-debugging#the-'debug-hooks'-command">debug-hooks</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-debugging#the-'debug-log'-command">debug-log</a></li>
+                <li><a href="{{ site.baseurl }}/juju/developer-debug-dhx">DHX</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/developer-howto">How to...</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/howto-charm-with-docker">Charm with Docker</a></li>
+                <li><a href="{{ site.baseurl }}/juju/howto-vagrant-workflow">Work with Vagrant</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/authors-intro">Charm Authors</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/authors-hook-environment">How hooks are run (Hook API)</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-relations-in-depth">Relations lifecycle</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-relations">Implementing relations</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-charm-leadership">Charm leadership</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-hook-errors">Hook Errors</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-hook-debug">Hook Debugging</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-hook-debug-dhx">Hook Debugging with DHX</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-subordinate-services">Subordinate services</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-implicit-relations">Implicit Relations</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-testing">Charm Testing</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-charm-building">Building a Charm from Layers</a></li>
+            </ul>
+        </li>
+        <li class="section"><a class="header" href="{{ site.baseurl }}/juju/authors-charm-store">The Juju Charm Store</a>
+            <ul class="sub">
+                <li><a href="{{ site.baseurl }}/juju/authors-charm-store#submitting-a-new-charm">Submit a charm</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-charm-policy">Charm store policy</a></li>
+                <li><a href="{{ site.baseurl }}/juju/charm-review-process">Charm review process</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-charm-best-practice">Best practices</a></li>
+                <li><a href="{{ site.baseurl }}/juju/authors-charm-icon">Charm Icons</a></li>
+            </ul>
+        </li>
+    </ul>
+<!--- SECTION --->
+    <li class="section"><h4 class="header toggle-target">Tools</h4>
+        <ul>
+        <li><a href="{{ site.baseurl }}/juju/tools-charm-tools">Charm Tools</a></li>
+        <li><a href="{{ site.baseurl }}/juju/tools-charm-helpers">Charm Helpers</a></li>
+        <li><a href="{{ site.baseurl }}/juju/tools-amulet">Amulet</a></li>
+    </ul>
+<!--- SECTION --->
+    <li class="section"><h4 class="header toggle-target">Reference</h4>
+        <ul>
+        <li><a href="{{ site.baseurl }}/juju/commands">Juju commands</a></li>
+        <li><a href="{{ site.baseurl }}/juju/reference-constraints">Juju constraints</a></li>
+        <li><a href="{{ site.baseurl }}/juju/reference-charm-hooks">Juju Charm Hooks</a></li>
+        <li><a href="{{ site.baseurl }}/juju/reference-environment-variables">Juju environment variables</a></li>
+        <li><a href="{{ site.baseurl }}/juju/reference-hook-tools">Juju Hook Tools</a></li>
+        <li><a href="{{ site.baseurl }}/juju/reference-layer-yaml">Layer.yaml</a></li>
+        <li><a href="http://godoc.org/github.com/juju/juju/api">API docs</a></li>
+        <li><a href="{{ site.baseurl }}/juju/reference-releases">Releases</a></li>
+        <li><a href="{{ site.baseurl }}/juju/reference-release-notes">Release notes</a></li>
+        <li><a href="{{ site.baseurl }}/juju/reference-status">Status values</a></li>
+        <li><a href="{{ site.baseurl }}/juju/reference-numbering">Machine/unit numbering</a></li>
+        <li><a href="{{ site.baseurl }}/juju/glossary">Glossary</a></li>
+        <li><a href="{{ site.baseurl }}/juju/reference-reviewers">Charm Review Criteria</a></li>
+    </ul>
+<li><a href="{{ site.baseurl }}/juju/contributing">Help improve these docs</a></li>
+<li><a href="https://github.com/juju/docs/issues/new">Report a docs issue</a></li>
+</ul>
