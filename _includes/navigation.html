@@ -1,184 +1,38 @@
- <ul>
-<!--- SECTION --->
-    <li class="section"><h4 class="header toggle-target">User Guide</h4>
-        <ul>
-        <li><a href="{{ site.baseurl }}/about-juju">About Juju</a></li>
-        <li><a href="{{ site.baseurl }}/introducing-2">Introducing Juju 2.0!</a></li>
-        <li><a href="{{ site.baseurl }}/getting-started">Getting Started</a></li>
-        <li><a href="{{ site.baseurl }}/juju-concepts">Juju concepts</a></li>
-        <li><a href="{{ site.baseurl }}/getting-started-general">Install &amp; Configure</a></li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/clouds">Clouds</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/credentials">Credentials</a></li>
-            </ul>
-        </li>
-        <li><a href="{{ site.baseurl }}/controllers">Controllers</a></li>
-        <li><a href="{{ site.baseurl }}/models">Models</a></li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/charms">Charms & Services</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/charms-deploying">Deploying Services</a></li>
-                <li><a href="{{ site.baseurl }}/charms-constraints">Using constraints</a></li>
-                <li><a href="{{ site.baseurl }}/charms-config">Service configuration</a></li>
-                <li><a href="{{ site.baseurl }}/charms-relations">Service Relations</a></li>
-                <li><a href="{{ site.baseurl }}/charms-exposing">Exposing Services</a></li>
-                <li><a href="{{ site.baseurl }}/charms-scaling">Scaling Services</a></li>
-                <li><a href="{{ site.baseurl }}/charms-destroy">Removing Services &amp; Units</a></li>
-                <li><a href="{{ site.baseurl }}/charms-service-groups">Groups of Services</a></li>
-                <li><a href="{{ site.baseurl }}/charms-ha">Charm high availability</a></li>
-                <li><a href="{{ site.baseurl }}/charms-bundles">Using bundles</a></li>
-                <li><a href="{{ site.baseurl }}/charms-working-with-units">Working with Units</a></li>
-                <li><a href="{{ site.baseurl }}/actions">Working with Actions</a></li>
-                <li><a href="{{ site.baseurl }}/charms-storage">Using storage</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/users">Users</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/users-auth">Authentication</a></li>
-                <li><a href="{{ site.baseurl }}/users-creating">Creating users</a></li>
-                <li><a href="{{ site.baseurl }}/users-models">Users and models</a></li>
-                <li><a href="{{ site.baseurl }}/users-manage">User management</a></li>
-                <li><a href="{{ site.baseurl }}/users-sample-commands">Sample commands</a></li>
-                <li><a href="{{ site.baseurl }}/users-workflows">Workflow scenarios</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/juju-managing">Managing Juju</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/juju-block">Restrict/block Juju commands</a></li>
-                <li><a href="{{ site.baseurl }}/juju-centos">CentOS support</a></li>
-                <li><a href="{{ site.baseurl }}/network-spaces">Network spaces</a></li>
-                <li><a href="{{ site.baseurl }}/juju-misc">Miscellaneous</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/howto">How to...</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/howto-node">Deploy a Node.js app</a></li>
-                <li><a href="{{ site.baseurl }}/howto-rails">Test and deploy on Rails</a></li>
-                <li><a href="{{ site.baseurl }}/howto-privatecloud">Set up a Private Cloud</a></li>
-                <li><a href="{{ site.baseurl }}/howto-vagrant-workflow">Vagrant Workflow</a></li>
-                <li><a href="{{ site.baseurl }}/howto-drupal-iis">Deploy Drupal Windows charm</a></li>
-            </ul>
-        </li>
-        <li><a href="{{ site.baseurl }}/troubleshooting">Troubleshooting</a></li>
+<div class="docnav">
+    <h3>About MAAS</h3>
+    <ul class="no-margin">
+        <li class=""><a href="{{ site.baseurl }}/about">About MAAS</a></li>
     </ul>
-<!--- SECTION --->
-    <li class="section"><h4 class="header toggle-target">Developer Guide</h4>
-        <ul>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/developer-getting-started">Getting Started</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/developer-getting-started#install-libraries-and-tools">Prerequisites and Tools</a></li>
-                <li><a href="{{ site.baseurl }}/developer-getting-started#designing-your-charm">Designing your Charm</a></li>
-                <li><a href="{{ site.baseurl }}/developer-getting-started#writing-your-charm">Writing your Charm</a></li>
-                <li><a href="{{ site.baseurl }}/developer-getting-started#testing-your-charm">Testing your Charm</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/developer-event-cycle">Event Cycle</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/developer-event-cycle#handling-reactive-states">Handling Reactive States</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/developer-layers">Charm Layers</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/developer-layers#what-are-layers?">What are Layers</a></li>
-                <li><a href="{{ site.baseurl }}/developer-layers#states">States</a></li>
-                <li><a href="{{ site.baseurl }}/developer-layer-example">How to Write a Layer</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/developer-layers-interfaces">Interface Layers</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/developer-layers-interfaces#design-considerations">Design Considerations</a></li>
-                <li><a href="{{ site.baseurl }}/developer-layers-interfaces#communication-scopes">Communication Scopes</a></li>
-                <li><a href="{{ site.baseurl }}/developer-layers-interfaces#writing-an-interface-layer">Writing an Interface</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/developer-leadership">Implementing Leadership</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/developer-leadership#leadership-hooks">Leadership Hooks</a></li>
-                <li><a href="{{ site.baseurl }}/developer-leadership#leadership-tools">Leadership Tools</a></li>
-                <li><a href="{{ site.baseurl }}/developer-leadership#leadership-howtos">Leadership Howtos</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/developer-actions">Implementing Actions</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/developer-actions#implementing-actions">Defining Actions</a></li>
-                <li><a href="{{ site.baseurl }}/developer-actions#action-tools">Action Tools</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/developer-storage">Implementing Storage</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/developer-storage#adding-storage">Adding Storage</a></li>
-                <li><a href="{{ site.baseurl }}/developer-storage#storage-hooks">Storage Hooks</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/developer-testing">Writing Tests</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/developer-testing#charm-proof">Charm Proof</a></li>
-                <li><a href="{{ site.baseurl }}/developer-testing#amulet">Amulet</a></li>
-                <li><a href="{{ site.baseurl }}/developer-testing#bundletester">BundleTester</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/developer-debugging">Debugging</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/developer-debug-layers">Debugging Layers</li></a></li>
-                <li><a href="{{ site.baseurl }}/developer-debugging#the-'debug-hooks'-command">debug-hooks</a></li>
-                <li><a href="{{ site.baseurl }}/developer-debugging#the-'debug-log'-command">debug-log</a></li>
-                <li><a href="{{ site.baseurl }}/developer-debug-dhx">DHX</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/developer-howto">How to...</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/howto-charm-with-docker">Charm with Docker</a></li>
-                <li><a href="{{ site.baseurl }}/howto-vagrant-workflow">Work with Vagrant</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/authors-intro">Charm Authors</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/authors-hook-environment">How hooks are run (Hook API)</a></li>
-                <li><a href="{{ site.baseurl }}/authors-relations-in-depth">Relations lifecycle</a></li>
-                <li><a href="{{ site.baseurl }}/authors-relations">Implementing relations</a></li>
-                <li><a href="{{ site.baseurl }}/authors-charm-leadership">Charm leadership</a></li>
-                <li><a href="{{ site.baseurl }}/authors-hook-errors">Hook Errors</a></li>
-                <li><a href="{{ site.baseurl }}/authors-hook-debug">Hook Debugging</a></li>
-                <li><a href="{{ site.baseurl }}/authors-hook-debug-dhx">Hook Debugging with DHX</a></li>
-                <li><a href="{{ site.baseurl }}/authors-subordinate-services">Subordinate services</a></li>
-                <li><a href="{{ site.baseurl }}/authors-implicit-relations">Implicit Relations</a></li>
-                <li><a href="{{ site.baseurl }}/authors-testing">Charm Testing</a></li>
-                <li><a href="{{ site.baseurl }}/authors-charm-building">Building a Charm from Layers</a></li>
-            </ul>
-        </li>
-        <li class="section"><a class="header" href="{{ site.baseurl }}/authors-charm-store">The Juju Charm Store</a>
-            <ul class="sub">
-                <li><a href="{{ site.baseurl }}/authors-charm-store#submitting-a-new-charm">Submit a charm</a></li>
-                <li><a href="{{ site.baseurl }}/authors-charm-policy">Charm store policy</a></li>
-                <li><a href="{{ site.baseurl }}/charm-review-process">Charm review process</a></li>
-                <li><a href="{{ site.baseurl }}/authors-charm-best-practice">Best practices</a></li>
-                <li><a href="{{ site.baseurl }}/authors-charm-icon">Charm Icons</a></li>
-            </ul>
-        </li>
+    <h3>Install</h3>
+    <ul class="no-margin">
+        <li class=""><a href="{{ site.baseurl }}/install">Installing MAAS</a></li>
+        <li class=""><a href="{{ site.baseurl }}/install">Post-install tasks</a></li>
     </ul>
-<!--- SECTION --->
-    <li class="section"><h4 class="header toggle-target">Tools</h4>
-        <ul>
-        <li><a href="{{ site.baseurl }}/tools-charm-tools">Charm Tools</a></li>
-        <li><a href="{{ site.baseurl }}/tools-charm-helpers">Charm Helpers</a></li>
-        <li><a href="{{ site.baseurl }}/tools-amulet">Amulet</a></li>
+    <h3>Additional Configuration</h3>
+    <ul class="no-margin">
+        <li class=""><a href="{{ site.baseurl }}/configure">Configuration</a></li>
+        <li class=""><a href="{{ site.baseurl }}/config-cluster">Cluster configuration</a></li>
+        <li class=""><a href="{{ site.baseurl }}/config-networks">Adding networks</a></li>
+        <li class=""><a href="{{ site.baseurl }}/config-boot"> Sources</a></li>
+        <li class=""><a href="{{ site.baseurl }}/config-ipv6"> IPv6 networking</a></li>
+        <li class=""><a href="{{ site.baseurl }}/config-zones">Configuring zones</a></li>
+        <li class=""><a href="{{ site.baseurl }}/config-static-ips">Static IP addresses</a></li>
+        <li class=""><a href="{{ site.baseurl }}/kernel-options">Setting kernel options</a></li>
     </ul>
-<!--- SECTION --->
-    <li class="section"><h4 class="header toggle-target">Reference</h4>
-        <ul>
-        <li><a href="{{ site.baseurl }}/commands">Juju commands</a></li>
-        <li><a href="{{ site.baseurl }}/reference-constraints">Juju constraints</a></li>
-        <li><a href="{{ site.baseurl }}/reference-charm-hooks">Juju Charm Hooks</a></li>
-        <li><a href="{{ site.baseurl }}/reference-environment-variables">Juju environment variables</a></li>
-        <li><a href="{{ site.baseurl }}/reference-hook-tools">Juju Hook Tools</a></li>
-        <li><a href="{{ site.baseurl }}/reference-layer-yaml">Layer.yaml</a></li>
-        <li><a href="http://godoc.org/github.com/juju/juju/api">API docs</a></li>
-        <li><a href="{{ site.baseurl }}/reference-releases">Releases</a></li>
-        <li><a href="{{ site.baseurl }}/reference-release-notes">Release notes</a></li>
-        <li><a href="{{ site.baseurl }}/reference-status">Status values</a></li>
-        <li><a href="{{ site.baseurl }}/reference-numbering">Machine/unit numbering</a></li>
-        <li><a href="{{ site.baseurl }}/glossary">Glossary</a></li>
-        <li><a href="{{ site.baseurl }}/reference-reviewers">Charm Review Criteria</a></li>
+    <h3>Nodes</h3>
+    <ul class="no-margin">
+        <li class=""><a href="{{ site.baseurl }}/nodes">Adding nodes</a></li>
+        <li class=""><a href="{{ site.baseurl }}/installing-ubuntu">Installing Ubuntu</a></li>
+        <li class=""><a href="{{ site.baseurl }}/juju-quick-start">Working with Juju</a></li>
     </ul>
-<li><a href="{{ site.baseurl }}/contributing">Help improve these docs</a></li>
-<li><a href="https://github.com/juju/docs/issues/new">Report a docs issue</a></li>
-</ul>
+    <h3>How to...</h3>
+    <ul class="no-margin">
+        <li class=""><a href="{{ site.baseurl }}/trouble">Troubleshooting</a></li>
+        <li class=""><a href="{{ site.baseurl }}/getting-help">Get help!</a></li>
+    </ul>
+    <h3>Reference</h3>
+    <ul class="no-margin">
+        <li class=""><a href="{{ site.baseurl }}/maascli">MAAS CLI</a></li>
+        <li class=""><a href="{{ site.baseurl }}/changelog">Release Notes</a></li>
+    </ul>
+</div>
