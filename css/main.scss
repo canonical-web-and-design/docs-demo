@@ -3,7 +3,7 @@
 ---
 @charset "utf-8";
 
-@import "../node_modules/docs-vanilla-theme/scss/theme",
+@import "../sass/docs-vanilla-theme/scss/theme",
         "base";
 
 @include docs-vanilla-theme;
