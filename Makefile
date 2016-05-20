@@ -63,6 +63,24 @@ snapcraft-docs:
 	-rm -rf temp
 	./builddocs.py snapcraft
 
+PHONY:lxd-docs
+lxd-docs:
+	git clone git@github.com:lxc/lxd.git temp
+	mkdir -p pages/lxd
+	cp temp/doc/* pages/lxd
+	echo "<ul>" > _includes/lxd-navigation.html
+	ls pages/lxd >> _includes/lxd-navigation.html
+	sed -E -i '.bak' 's/(.*)\.md/<li><a href="{{ site.baseurl }}\/lxd\/\1">\1<\/a><\/li>/g' _includes/lxd-navigation.html
+	echo "</ul>" >> _includes/lxd-navigation.html
+	cp _layouts/default.html _layouts/lxd-default.html
+	sed -E -i '.bak' 's/navigation.html/lxd-navigation.html/g' _layouts/lxd-default.html
+	cp pages/lxd/configuration.md pages/lxd/index.md # hack for lack of index page
+	-rm -rf _includes/*.bak
+	-rm -rf _layouts/*.bak
+	-rm -rf temp
+	./builddocs.py lxd
+
+
 PHONY:clean
 clean:
 	-rm -rf pages media temp
