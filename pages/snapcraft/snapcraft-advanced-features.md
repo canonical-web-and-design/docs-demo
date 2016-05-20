@@ -5,7 +5,7 @@ permalink: /snapcraft/snapcraft-advanced-features/
 ---
 # Snapcraft: Advanced features
 
-Once you have built [your first snap](your-first-snap.md), you will probably
+Once you have built [your first snap](your-first-snap), you will probably
 want to learn more about snapcraft's more advanced features. Having a look at
 our selection of examples is a good idea, as we want it to be a good showcase
 of what is possible and generally relevant.
@@ -279,4 +279,4 @@ Combining various plugins and parts and using the wiki plugin make `snapcraft`
 incredibly versatile. On top of that, you can write [your own plugin] [plugin]
 as well.
 
-[plugin]: plugins.md
+[plugin]: plugins

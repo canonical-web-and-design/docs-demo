@@ -106,4 +106,4 @@ snap format.
 # Next
 
 After introducing the key concept of snapcraft it is probably a good
-time [get set up](get-started.md) to create your first snap with snapcraft.
+time [get set up](get-started) to create your first snap with snapcraft.

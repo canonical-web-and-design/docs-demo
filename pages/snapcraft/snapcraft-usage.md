@@ -48,5 +48,5 @@ a look at its [more advanced features] [advanced] or at an overview of the
 [snapcraft.yaml syntax] [syntax].
 
 
-[advanced]: snapcraft-advanced-features.md
-[syntax]: snapcraft-syntax.md
+[advanced]: snapcraft-advanced-features
+[syntax]: snapcraft-syntax

@@ -143,7 +143,7 @@ Column          | Type          | Default       | Constraint        | Descriptio
 id              | INTEGER       | SERIAL        | NOT NULL          | SERIAL
 container\_id   | INTEGER       | -             | NOT NULL          | containers.id FK
 name            | VARCHAR(255)  | -             | NOT NULL          | Container name
-type            | INTEGER       | 0             | NOT NULL          | Device type (see configuration.md)
+type            | INTEGER       | 0             | NOT NULL          | Device type (see configuration)
 
 Index: UNIQUE ON id AND container\_id + name
 
@@ -273,7 +273,7 @@ Column          | Type          | Default       | Constraint        | Descriptio
 id              | INTEGER       | SERIAL        | NOT NULL          | SERIAL
 profile\_id     | INTEGER       | -             | NOT NULL          | profiles.id FK
 name            | VARCHAR(255)  | -             | NOT NULL          | Container name
-type            | INTEGER       | 0             | NOT NULL          | Device type (see configuration.md)
+type            | INTEGER       | 0             | NOT NULL          | Device type (see configuration)
 
 Index: UNIQUE ON id AND profile\_id + name
 

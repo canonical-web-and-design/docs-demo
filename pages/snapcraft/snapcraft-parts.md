@@ -9,7 +9,7 @@ Parts are the main building block to create snaps using Snapcraft. Parts have
 their own private space and lifecycle. Each part uses a `plugin`, which tells
 the part how to behave and what to do with the information inside it.
 
-As seen in the [article about snapcraft.yaml syntax](snapcraft-syntax.md)
+As seen in the [article about snapcraft.yaml syntax](snapcraft-syntax)
 parts have general keywords that apply to all of them. In one case, you may
 want to enhance your part's functionality using `stage-packages` which end up
 bringing Ubuntu deb-based packages into your part, `filesets` to declare

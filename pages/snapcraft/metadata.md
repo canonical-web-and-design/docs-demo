@@ -111,4 +111,4 @@ or
 
 
 [sec]: https://developer.ubuntu.com/snappy/guides/security-policy/
-[syntax]: snapcraft-syntax.md
+[syntax]: snapcraft-syntax

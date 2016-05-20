@@ -47,7 +47,7 @@ apt-get install virt-manager
 
 ### Get the Mir Snap running first
 
-If you haven't already, [install the snapcraft tools](get-started.md).
+If you haven't already, [install the snapcraft tools](get-started).
 
 Now grab the `mir-server` snap branch to build.
 ```

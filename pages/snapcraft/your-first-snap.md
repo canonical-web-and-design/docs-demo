@@ -306,14 +306,14 @@ a few examples for reference or to get inspired, have a look at the
 In `examples/` you can find a diverse set of examples which should help you
 get started on your own projects. To get a good overview of the snapcraft
 features used in these examples, check out
-[this article](snapcraft-advanced-features.md).
+[this article](snapcraft-advanced-features).
 
 Some more suggestions in our docs:
 * If you are unsure, you can review the general
-  [snapcraft.yaml syntax](snapcraft-syntax.md).
-* Some discussion of [snapcraft parts](snapcraft-parts.md) in particular.
-* We also added some notes about [snapcraft usage](snapcraft-usage.md).
-* The [debug section](debug.md) might be helpful too.
+  [snapcraft.yaml syntax](snapcraft-syntax).
+* Some discussion of [snapcraft parts](snapcraft-parts) in particular.
+* We also added some notes about [snapcraft usage](snapcraft-usage).
+* The [debug section](debug) might be helpful too.
 
 If you should have any more questions, ask us on
 
@@ -332,7 +332,7 @@ anything that you are interested in. Choose a good name for it, and you can
 very easily share it in
 [ubuntu myapps](https://myapps.developer.ubuntu.com/dev/click-apps/?format=snap)
 where you go to share it with other snappy users. You can even use Snapcraft to
-[upload for you](upload-your-snap.md)!
+[upload for you](upload-your-snap)!
 
 This is the same underlying hub that we use for Ubuntu phone apps, but
 snappy is a new iteration of that system. It only takes minutes from time of

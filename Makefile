@@ -9,6 +9,8 @@ juju-docs:
 	cp _layouts/default.html _layouts/juju-default.html
 	sed -E -i '.bak' 's/navigation.html/juju-navigation.html/g' _layouts/juju-default.html
 	cp pages/juju/about-juju.md pages/juju/index.md # hack for lack of index page
+	sed -E -i '.bak' 's/\.md//g' pages/juju/
+	-rm -rf pages/juju/*.bak
 	-rm -rf _includes/*.bak
 	-rm -rf _layouts/*.bak
 	-rm -rf temp
@@ -23,6 +25,8 @@ maas-docs:
 	sed -E -i '.bak' 's/href="(.*)\.html/href="{{ site.baseurl }}\/maas\/\1/g' _includes/maas-navigation.html
 	cp _layouts/default.html _layouts/maas-default.html
 	sed -E -i '.bak' 's/navigation.html/maas-navigation.html/g' _layouts/maas-default.html
+	sed -E -i '.bak' 's/\.md//g' pages/maas/
+	-rm -rf pages/maas/*.bak
 	-rm -rf _includes/*.bak
 	-rm -rf _layouts/*.bak
 	-rm -rf temp
@@ -40,6 +44,8 @@ snappy-docs:
 	cp _layouts/default.html _layouts/snappy-default.html
 	sed -E -i '.bak' 's/navigation.html/snappy-navigation.html/g' _layouts/snappy-default.html
 	cp pages/snappy/config.md pages/snappy/index.md # hack for lack of index page
+	sed -E -i '.bak' 's/\.md//g' pages/snappy/
+	-rm -rf pages/snappy/*.bak
 	-rm -rf _includes/*.bak
 	-rm -rf _layouts/*.bak
 	-rm -rf temp
@@ -58,6 +64,8 @@ snapcraft-docs:
 	cp _layouts/default.html _layouts/snapcraft-default.html
 	sed -E -i '.bak' 's/navigation.html/snapcraft-navigation.html/g' _layouts/snapcraft-default.html
 	cp pages/snapcraft/intro.md pages/snapcraft/index.md # hack for lack of index page
+	sed -E -i '.bak' 's/\.md//g' pages/snapcraft/
+	-rm -rf pages/snapcraft/*.bak
 	-rm -rf _includes/*.bak
 	-rm -rf _layouts/*.bak
 	-rm -rf temp
@@ -75,6 +83,8 @@ lxd-docs:
 	cp _layouts/default.html _layouts/lxd-default.html
 	sed -E -i '.bak' 's/navigation.html/lxd-navigation.html/g' _layouts/lxd-default.html
 	cp pages/lxd/configuration.md pages/lxd/index.md # hack for lack of index page
+	sed -E -i '.bak' 's/\.md//g' pages/lxd/
+	-rm -rf pages/lxd/*.bak
 	-rm -rf _includes/*.bak
 	-rm -rf _layouts/*.bak
 	-rm -rf temp
@@ -88,4 +98,4 @@ clean:
 	-rm _includes/*-navigation.html
 
 PHONY:docs
-docs: clean juju-docs maas-docs snappy-docs snapcraft-docs
+docs: clean juju-docs maas-docs snappy-docs snapcraft-docs lxd-docs

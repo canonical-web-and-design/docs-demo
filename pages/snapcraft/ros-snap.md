@@ -371,8 +371,8 @@ service, `$HOME` will be `/root`, so the logs will be in
 `/root/snap/ros-example.sideload/<version>/ros`.
 
 [1]: http://www.ros.org/
-[2]: get-started.md
+[2]: get-started
 [3]: http://wiki.ros.org/indigo/Installation/Ubuntu
 [4]: http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 [5]: http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29
-[6]: your-first-snap.md
+[6]: your-first-snap

@@ -76,7 +76,7 @@ The following keys are optional:
 
 Interfaces allow snaps to communicate or share resources according to the
 protocol established by the interface and play an important part in security
-policy configuration. See `interfaces.md` and `security.md` for details.
+policy configuration. See `interfaces` and `security` for details.
 
 ## license.txt
 
@@ -124,7 +124,7 @@ install.
 
 ## hooks/ directory
 
-See `config.md` for details.
+See `config` for details.
 
 # Examples
 

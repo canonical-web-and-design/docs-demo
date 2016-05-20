@@ -21,11 +21,11 @@ device can be seen with:
 
     $ snap interfaces
 
-The description of these interfaces is found in `interfaces.md`.
+The description of these interfaces is found in `interfaces`.
 
 Each command declared in `apps` by the snap is tracked by the system by
 assigning a security label to the command. This security label takes the form
-of `snap.<name>.<app>` where `<name>` is the name of the snap from `meta.md`
+of `snap.<name>.<app>` where `<name>` is the name of the snap from `meta`
 and `<app>` is the command name. For example, if this is in `snap.yaml`:
 
     name: foo
@@ -37,7 +37,7 @@ and `<app>` is the command name. For example, if this is in `snap.yaml`:
 
 then the security label for the `bar` command is `snap.foo.bar`. This security
 label is used throughout the system including in the enforcement of security
-policy by the app launcher. All snap commands declared via `apps` in `meta.md`
+policy by the app launcher. All snap commands declared via `apps` in `meta`
 are launched by the launcher and snaps run in the global (ie, default)
 namespace (except where noted otherwise) to facilitate communications and
 sharing between snaps and because this is more familiar for developers and
@@ -51,10 +51,10 @@ as per the snappy FHS. Under the hood, the launcher:
     * `SNAP_ARCH`: the architecture of device (eg, amd64, arm64, armhf, i386, etc)
     * `SNAP_DATA`: writable area for the snap
     * `SNAP_LIBRARY_PATH`: additional directories added to `LD_LIBRARY_PATH`
-    * `SNAP_NAME`: snap name (from `meta.md`)
+    * `SNAP_NAME`: snap name (from `meta`)
     * `SNAP_REVISION`: store revision of the snap
     * `SNAP_USER_DATA`: per-user writable area for the snap
-    * `SNAP_VERSION`: snap version (from `meta.md`)
+    * `SNAP_VERSION`: snap version (from `meta`)
     * `TMPDIR`: set to `/tmp`
 * When hardware is assigned to the snap, sets up a device cgroup with default
   devices (eg, /dev/null, /dev/urandom, etc) and any devices that are assigned
@@ -91,7 +91,7 @@ the yaml as `plugs` and `slots`.
 The `snap.yaml` need not specify anything for default confinement and may
 optionally specify `plugs` and `slots` to declare additional interfaces to use.
 When an interface is connected, the snap's security policy will be updated to
-allow access to use the interface. See `meta.md` and `interface.md` for
+allow access to use the interface. See `meta` and `interface` for
 details.
 
 The default AppArmor policy is deny by default and snaps are restricted to
@@ -154,7 +154,7 @@ interface have the interface security policy added to them.
 Snappy may autoconnect the requested interfaces upon install or may require the
 user to manually connect them. Interface connections and disconnections are
 performed via the `snap connect` and `snap disconnect` commands. See
-`interfaces.md` for details.
+`interfaces` for details.
 
 # Developer mode
 Sometimes it is helpful when developing a snap to not have to worry about the
