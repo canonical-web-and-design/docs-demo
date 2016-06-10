@@ -3,9 +3,7 @@ layout: juju-default
 title: Getting started with Juju 2.0
 permalink: /juju/getting-started/
 ---
-TODO: remove ppa/devel after release
-      simplify ZFS install
-
+TODO: Mediawiki status needs new screenshot when status has been updated in Juju
 
 # Getting started with Juju 2.0
 
@@ -28,65 +26,117 @@ Both the above are provided with Ubuntu 16.04LTS.
 
 Run the following commands to install the required software:
 
-```bash
-sudo add-apt-repository ppa:juju/devel
+```no-highlight
 sudo apt update
-sudo apt install juju zfsutils-linux lxd
-newgrp -
+sudo apt install juju-2.0 zfsutils-linux
 ```
-
-!!! Note: The `newgrp` command should only be necessary if package 'lxd' got
-installed (it may be already installed). This command will update your group
-memberships but will also start a new shell.
-
-
-## Prepare ZFS
-
-Using ZFS we can create sparse backing-storage for any of the containers which
-LXD creates for Juju. You can create this storage anywhere (e.g. the fastest
-drive you have). This example creates a 32G file to use:
-
-```bash
-sudo mkdir /var/lib/zfs
-sudo truncate -s 32G /var/lib/zfs/lxd.img
-sudo zpool create lxd /var/lib/zfs/lxd.img
-```
-
-As this is sparse storage, it won't actually take up disk space until it is 
-actually being used. You can check the file has been added to a ZFS pool with 
-the following command:
-  
-```bash
-sudo zpool iostat -v
-```
-
 
 ## Initialise LXD
 
-Now we need to tell LXD about this storage:
+In order to use LXD, your user must be in the 'lxd' group. All system users are
+automatically added to this group, but you may need to refresh the current 
+session. You can confirm your user is part of this group by running the command:
 
 ```bash
-sudo lxd init --auto --storage-backend zfs --storage-pool lxd
+groups
+```
+This should indicate the user is a member of the lxd group, amongst others (your
+groups may vary from these):
+
+```no-highlight
+lxd adm cdrom sudo dip plugdev lpadmin sambashare ubuntu
 ```
 
+If the `lxd` group is not present, you can refresh group membership with the 
+command:
+  
+```bash
+newgrp lxd
+```
+
+LXD includes an interactive initialisation which will also set up a ZFS pool 
+to use and configures networking for your containers. To start this process, 
+enter:
+
+```bash
+sudo lxd init
+```
+
+You will be prompted for various options. As an example, to configure LXD to 
+create a new 32GB ZFS pool to use, called 'lxd-pool', and set up a bridge 
+network (required for Juju), your session would look like this:
+ 
+```no-highlight
+Name of the storage backend to use (dir or zfs): zfs
+Create a new ZFS pool (yes/no)? yes
+Name of the new ZFS pool: lxd-pool
+Would you like to use an existing block device (yes/no)? no
+Size in GB of the new loop device (1GB minimum): 32
+Would you like LXD to be available over the network (yes/no)? no
+Do you want to configure the LXD bridge (yes/no)? yes
+```
+
+The last question will initiate a series of dialogues to configure the bridge 
+device and subnet. Except in the case the subnet may clash with existing 
+networks, it is okay to accept the defaults on all dialogues (though it is not
+required to configure IPv6 networking).
+
+^# Walkthrough of network configuration
+
+   In order for networking to be established between containers and Juju, you 
+   need to set up a bridge device.
+
+   !["step 1"](/docs-demo/media/juju/juju-lxd-config001.png)
+
+   The default name for the bridge device is `lxdbr0`. This name _must_ be used 
+   for Juju to be able to connect to the containers.
+   
+   !["step 2"](/docs-demo/media/juju/juju-lxd-config002.png)
+   
+   Juju will expect an IPv4 network space for the containers, so you should 
+   enable this.
+   
+   !["step 3"](/docs-demo/media/juju/juju-lxd-config003.png)
+   
+   The default address is chosen randomly in the 10.x.x.x space. You do not 
+   need to change this unless it conflicts with another subnet you know is on
+   your network.
+   
+   !["step 4"](/docs-demo/media/juju/juju-lxd-config004.png)
+   
+   You need to enter a [CIDR](https://tools.ietf.org/html/rfc4632) mask value. 
+   The default of 24 gives you a possible 254 addresses for the subnet.
+   
+   !["step 5"](/docs-demo/media/juju/juju-lxd-config005.png)
+   
+   You can now specify the start address for DHCP...
+   
+   !["step 6"](/docs-demo/media/juju/juju-lxd-config006.png)
+   
+   And the end address...
+   
+   !["step 7"](/docs-demo/media/juju/juju-lxd-config007.png)
+   
+   You can also specify the total number of DHCP clients to accept.
+   
+   !["step 8"](/docs-demo/media/juju/juju-lxd-config008.png)
+   
+   Finally for IPv4, you should turn on Network Address Translation to enable
+   the contianers to communicate fully.
+   
+   !["step 9"](/docs-demo/media/juju/juju-lxd-config009.png)
+   
+   You can continue to set up a similar IPv6 bridge device, but this is not 
+   required for Juju.
+   
+   !["step 10"](/docs-demo/media/juju/juju-lxd-config010.png)
+   
+Now LXD is configured to create containers for Juju.
 
 ## Create a controller
 
 Juju needs a controller instance to manage your models and the `juju bootstrap`
-command is used to create one.
-
-However, if this is the first time using LXD then you'll need to configure it
-and expose a "network bridge" that Juju requires:
-
-```bash
-sudo dpkg-reconfigure -p medium lxd
-```
-
-!!! Note: During the configuration dialog, the bridge must be 'lxdbr0'. You
-can accept all other prompts although the last question (IPv6) is probably not
-needed.
-
-Proceed with the creation of the controller. For use with our LXD "cloud", we
+command is used to create one. For use with our LXD "cloud", we
 will make a controller called 'lxd-test':
 
 ```bash
@@ -113,13 +163,7 @@ local.lxd-test*  default  admin@local  10.0.3.124:17070
 
 Notice that the prefix 'local.' is added to the controller name we specified.
 
-Confirm ZFS is working by looking for changes to the storage pool:
-  
-```bash
-sudo zpool iostat -v
-```
-
-Newly-created controllers come bundled with two models: The 'admin' model,
+A newly-created controller has two models: The 'controller' model,
 which should be used only by Juju for internal management, and a 'default'
 model, which is ready for actual use.
 
@@ -140,18 +184,18 @@ The format is 'controller:model'.
 
 ## Deploy
 
-Juju is now ready to deploy any services from the hundreds included in the
+Juju is now ready to deploy any applications from the hundreds included in the
 [juju charm store](https://jujucharms.com). It is a good idea to test your new 
 model. How about a Mediawiki site?
 
 ```bash
-juju deploy mediawiki-single
+juju deploy wiki-simple
 ```
 This will fetch a 'bundle' from the Juju store. A bundle is a pre-packaged set
-of services, in this case the 'Mediawiki' service, and a database to run it 
-with. Juju will install both these services and add a relation between them - 
-this is part of the magic of Juju: it isn't just about deploying services, Juju 
-also knows how to connect them together.
+of applications, in this case 'Mediawiki', and a database to run it 
+with. Juju will install both applications and add a relation between them - 
+this is part of the magic of Juju: it isn't just about deploying software, Juju 
+also knows how to connect it all together.
 
 Installing shouldn't take long. You can check on how far Juju has got by running
 the command:
@@ -159,16 +203,17 @@ the command:
 ```bash
 juju status
 ```
-When the services have been installed the output to the above command will look
-something like this:
+When the applications have been installed, the output to the above command will
+look something like this:
 
 ![juju status](/docs-demo/media/juju/juju-mediawiki-status.png)
 
 There is quite a lot of information there but the important parts for now are 
-the [Services] section, which show that Mediawiki and MySQL are installed, and
+the [Applications] section, which show that Mediawiki and MySQL are installed, 
+and
 the [Units] section, which crucially shows the IP addresses allocated to them.
 
-By default, Juju is secure - you won't be able to connect to any services 
+By default, Juju is secure - you won't be able to connect to any applications 
 unless they are specifically exposed. This adjusts the relevant firewall 
 controls (on any cloud, not just LXD) to allow external access. To make
 our Mediawiki visible, we run the command:
@@ -177,17 +222,17 @@ our Mediawiki visible, we run the command:
 juju expose mediawiki
 ```
 
-From the status output, we can see that the Mediawiki service is running on 
+From the status output, we can see that Mediawiki is running on 
 10.0.3.60 (your IP may vary). If we open up Firefox now and point it at that 
 address, you should see the site running.
 
 !["mediawiki site"](/docs-demo/media/juju/juju-mediawiki-site.png)
 
-Congratulations, you have just deployed a service with Juju!
+Congratulations, you have just deployed an application with Juju!
 
-!!! Note: To remove all the services in the model you just created, it is often
-quickest to destroy the model with the command 'juju destroy-model default` and
-then [create a new model][models].
+!!! Note: To remove all the applications in the model you just created, it is 
+often quickest to destroy the model with the command 
+'juju destroy-model default` and then [create a new model][models].
 
 
 ## Next Steps
@@ -197,11 +242,11 @@ things you can do with it!
 
 We suggest you take the time to read the following:
 
-- [Clouds][clouds] goes into detail about configuring other clouds, including the 
-  public clouds like Azure, AWS, Google Compute Engine and Rackspace.
+- [Clouds][clouds] goes into detail about configuring other clouds, including
+  the public clouds like Azure, AWS, Google Compute Engine and Rackspace.
 - [Models][models] - Learn how to create, destroy and manage models.
-- [Charms/Services][charms] - find out how to construct complicated workloads 
-  in next to no time.
+- [Charms & Applications][charms] - find out how to construct complicated 
+  workloads in next to no time.
 
 
 [clouds]: ./clouds.html  "Configuring Juju Clouds"

@@ -139,7 +139,7 @@ snapshot:
 This action would support a call such as:
 
 ```bash
-juju action do mysql/0 snapshot filename=out.tar.gz compression.type=gzip
+juju run-action mysql/0 snapshot filename=out.tar.gz compression.type=gzip
 ```
 
 
@@ -168,7 +168,7 @@ For example, if an action named `snapshot` was defined on a MySQL charm, and
 was invoked by the user as follows:
 
 ```bash
-juju action do mysql/0 snapshot outfile="foo"
+juju run-action mysql/0 snapshot outfile="foo"
 ```
 
 then the `snapshot` could use `action-get` to retrieve the filename:
@@ -247,7 +247,7 @@ action-set timestamp="$(date)"
 Using the above action ('sayhello'), the command
 
 ```bash
-juju action do <unit> sayhello command="greetme"
+juju run-action <unit> sayhello command="greetme"
 # ...
 ```
 

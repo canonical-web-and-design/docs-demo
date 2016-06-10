@@ -271,6 +271,7 @@ name: ros-example
 version: 1.0
 summary: ROS Example
 description: Contains talker/listener ROS packages and a .launch file.
+confinement: strict
 
 apps:
   launch-project:
@@ -280,7 +281,7 @@ apps:
 uses:
   listener:
     type: migration-skill
-    caps: [network-listener]
+    plugs: [network]
 
 parts:
   ros-project:

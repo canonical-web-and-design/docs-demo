@@ -9,7 +9,7 @@ juju-docs:
 	cp _layouts/default.html _layouts/juju-default.html
 	sed -E -i '.bak' 's/navigation.html/juju-navigation.html/g' _layouts/juju-default.html
 	cp pages/juju/about-juju.md pages/juju/index.md # hack for lack of index page
-	sed -E -i '.bak' 's/\.md//g' pages/juju/
+	sed -E -i '.bak' 's/\.md//g' pages/juju/*
 	-rm -rf pages/juju/*.bak
 	-rm -rf _includes/*.bak
 	-rm -rf _layouts/*.bak
@@ -25,12 +25,29 @@ maas-docs:
 	sed -E -i '.bak' 's/href="(.*)\.html/href="{{ site.baseurl }}\/maas\/\1/g' _includes/maas-navigation.html
 	cp _layouts/default.html _layouts/maas-default.html
 	sed -E -i '.bak' 's/navigation.html/maas-navigation.html/g' _layouts/maas-default.html
-	sed -E -i '.bak' 's/\.md//g' pages/maas/
+	sed -E -i '.bak' 's/\.md//g' pages/maas/*
 	-rm -rf pages/maas/*.bak
 	-rm -rf _includes/*.bak
 	-rm -rf _layouts/*.bak
 	-rm -rf temp
 	./builddocs.py maas
+
+PHONY:snappy-dev-docs
+snappy-dev-docs:
+	git clone git@github.com:CanonicalLtd/snappy-docs.git temp
+	mkdir -p pages/snappy-dev media/snappy-dev
+	cp temp/*.md pages/snappy-dev
+	#cp temp/media/* media/snappy-dev/
+	cp _layouts/default.html _layouts/snappy-dev-default.html
+	cp temp/navigation.html _includes/snappy-dev-navigation.html
+	sed -E -i '.bak' 's/"(.*)\.md"/"{{ site.baseurl }}\/snappy-dev\/\1"/g' _includes/snappy-dev-navigation.html
+	sed -E -i '.bak' 's/navigation.html/snappy-dev-navigation.html/g' _layouts/snappy-dev-default.html
+	sed -E -i '.bak' 's/\.md//g' pages/snappy-dev/*
+	-rm -rf pages/snappy-dev/*.bak
+	-rm -rf _includes/*.bak
+	-rm -rf _layouts/*.bak
+	-rm -rf temp
+	./builddocs.py snappy-dev
 
 PHONY:snappy-docs
 snappy-docs:
@@ -44,7 +61,7 @@ snappy-docs:
 	cp _layouts/default.html _layouts/snappy-default.html
 	sed -E -i '.bak' 's/navigation.html/snappy-navigation.html/g' _layouts/snappy-default.html
 	cp pages/snappy/config.md pages/snappy/index.md # hack for lack of index page
-	sed -E -i '.bak' 's/\.md//g' pages/snappy/
+	sed -E -i '.bak' 's/\.md//g' pages/snappy/*
 	-rm -rf pages/snappy/*.bak
 	-rm -rf _includes/*.bak
 	-rm -rf _layouts/*.bak
@@ -64,7 +81,7 @@ snapcraft-docs:
 	cp _layouts/default.html _layouts/snapcraft-default.html
 	sed -E -i '.bak' 's/navigation.html/snapcraft-navigation.html/g' _layouts/snapcraft-default.html
 	cp pages/snapcraft/intro.md pages/snapcraft/index.md # hack for lack of index page
-	sed -E -i '.bak' 's/\.md//g' pages/snapcraft/
+	sed -E -i '.bak' 's/\.md//g' pages/snapcraft/*
 	-rm -rf pages/snapcraft/*.bak
 	-rm -rf _includes/*.bak
 	-rm -rf _layouts/*.bak
@@ -83,7 +100,7 @@ lxd-docs:
 	cp _layouts/default.html _layouts/lxd-default.html
 	sed -E -i '.bak' 's/navigation.html/lxd-navigation.html/g' _layouts/lxd-default.html
 	cp pages/lxd/configuration.md pages/lxd/index.md # hack for lack of index page
-	sed -E -i '.bak' 's/\.md//g' pages/lxd/
+	sed -E -i '.bak' 's/\.md//g' pages/lxd/*
 	-rm -rf pages/lxd/*.bak
 	-rm -rf _includes/*.bak
 	-rm -rf _layouts/*.bak
@@ -98,4 +115,4 @@ clean:
 	-rm _includes/*-navigation.html
 
 PHONY:docs
-docs: clean juju-docs maas-docs snappy-docs snapcraft-docs lxd-docs
+docs: clean juju-docs maas-docs snappy-docs snappy-dev-docs snapcraft-docs lxd-docs
