@@ -37,12 +37,13 @@ snappy-dev-docs:
 	git clone git@github.com:CanonicalLtd/snappy-docs.git temp
 	mkdir -p pages/snappy-dev media/snappy-dev
 	cp temp/*.md pages/snappy-dev
-	#cp temp/media/* media/snappy-dev/
+	cp temp/media/* media/snappy-dev/
 	cp _layouts/default.html _layouts/snappy-dev-default.html
 	cp temp/navigation.html _includes/snappy-dev-navigation.html
-	sed -E -i '.bak' 's/"(.*)\.md"/"{{ site.baseurl }}\/snappy-dev\/\1"/g' _includes/snappy-dev-navigation.html
-	sed -E -i '.bak' 's/navigation.html/snappy-dev-navigation.html/g' _layouts/snappy-dev-default.html
-	sed -E -i '.bak' 's/\.md//g' pages/snappy-dev/*
+# removed '.bak' from the three sed statements (as -p doesn't seem to be an option as suggested)
+	sed -E -i 's/"(.*)\.md"/"{{ site.baseurl }}\/snappy-dev\/\1"/g' _includes/snappy-dev-navigation.html
+	sed -E -i 's/navigation.html/snappy-dev-navigation.html/g' _layouts/snappy-dev-default.html
+	sed -E -i 's/\.md//g' pages/snappy-dev/*
 	-rm -rf pages/snappy-dev/*.bak
 	-rm -rf _includes/*.bak
 	-rm -rf _layouts/*.bak
