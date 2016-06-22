@@ -44,7 +44,8 @@ snappy-dev-docs:
 	sed -E -i 's/"(.*)\.md"/"{{ site.baseurl }}\/snappy-dev\/\1"/g' _includes/snappy-dev-navigation.html
 	sed -E -i 's/"(.*)\.md#/"{{ site.baseurl }}\/snappy-dev\/\1#/g' _includes/snappy-dev-navigation.html
 	sed -E -i 's/navigation.html/snappy-dev-navigation.html/g' _layouts/snappy-dev-default.html
-	sed -E -i 's/\.md//g' pages/snappy-dev/*
+	#sed -E -i 's/\.md//g' pages/snappy-dev/*
+	sed -E -i 's_]\((.*)\.md_](../\1_g' pages/snappy-dev/*
 	-rm -rf pages/snappy-dev/*.bak
 	-rm -rf _includes/*.bak
 	-rm -rf _layouts/*.bak

@@ -58,7 +58,7 @@ The following keys are optional:
 
 ## Interfaces
 
-Interfaces allow snaps to communicate or share resources according to the protocol established by the interface and play an important part in security policy configuration. See `interfaces` and `security` for details.
+Interfaces allow snaps to communicate or share resources according to the protocol established by the interface and play an important part in security policy configuration. See `interfaces.md` and `security.md` for details.
 
 ## license.txt
 
@@ -94,7 +94,7 @@ The `DBusActivatable`, `TryExec` and `Implements` keys are currently not support
 
 ## hooks/ directory
 
-See `config` for details.
+See `config.md` for details.
 
 # Examples
 

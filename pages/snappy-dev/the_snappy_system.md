@@ -26,4 +26,4 @@ The Snappy System aims to fix these challenges by offering:
 
 ![Snaps are self contained, confined applications that can make use features in other snaps using Interfaces.]( /docs-demo/media/snappy-dev/snap_in_snappy_system.png "Snap in the Snappy System")
 
-The Snappy System simplifies the development of devices and their software because, with the exception of a [limited number of OS features](ubuntu_core_desktop "Interfaces in Ubuntu core"), you are in control of all the components in your application. You simply add everything you need to the snap package. You then make the snap available using [the store](?? "the store"), or, if you are the device creator, create your own store. 
+The Snappy System simplifies the development of devices and their software because, with the exception of a [limited number of OS features](../ubuntu_core_desktop "Interfaces in Ubuntu core"), you are in control of all the components in your application. You simply add everything you need to the snap package. You then make the snap available using [the store](?? "the store"), or, if you are the device creator, create your own store. 
