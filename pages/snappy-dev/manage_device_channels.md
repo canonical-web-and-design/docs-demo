@@ -1,6 +1,6 @@
 ---
 layout: snappy-dev-default
-title: Manage_device_channels
+title: Channels
 permalink: /snappy-dev/manage_device_channels/
 ---
 # Channels #
@@ -41,7 +41,7 @@ Within each *release* (16 or rolling) a full set of channels (edge, beta, candid
 ## Image promotion ##
 Ubuntu snaps (Ubuntu core, gadget snaps and kernel snaps) are generated daily (often multiple images per day) and are thoroughly tested with automated and manual tests to ensure they comply with Ubuntu's QA standard. These daily images are distributed on the edge channel.
 
-![Promotion of images from the edge channel to beta](https://github.com/CanonicalLtd/snappy-docs/blob/master/media/Image_promotion.png)
+![Promotion of images from the edge channel to beta](/docs-demo/media/snappy-dev/Image_promotion.png)
 
 For these edge images to be release in the beta channel they have to comply with a more strict set of quality criteria, and pass a more stringent set of automated tests. Therefore only a subset of edge releases, those that pass additional test, make it to beta. 
 ## Choosing a release and channel to track ##

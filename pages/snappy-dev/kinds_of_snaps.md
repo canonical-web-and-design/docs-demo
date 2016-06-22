@@ -3,6 +3,7 @@ layout: snappy-dev-default
 title: The kinds of snaps
 permalink: /snappy-dev/kinds_of_snaps/
 ---
+
 #The kinds of snaps
 There are four kinds of snaps used in a snappy system:
 
@@ -13,7 +14,7 @@ There are four kinds of snaps used in a snappy system:
 
 These snaps form the architecture of a snappy system as shown below.
 
-![snap architecture](/media/snap_architecture.png)
+![snap architecture](/docs-demo/media/snappy-dev/snap_architecture.png)
 
 ##Kernel snaps
 

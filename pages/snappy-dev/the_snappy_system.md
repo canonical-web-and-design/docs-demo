@@ -3,6 +3,7 @@ layout: snappy-dev-default
 title: The Snappy System
 permalink: /snappy-dev/the_snappy_system/
 ---
+
 # The Snappy System
 
 In traditional Linux distributions software is distributed in packages:
