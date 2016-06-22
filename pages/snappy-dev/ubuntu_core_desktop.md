@@ -17,7 +17,7 @@ Practical implementations of Snappy Ubuntu Core consist of:
 
 Ubuntu Core is delivered in the OS snap (see [Kinds of Snaps](kinds_of_snaps "Kinds of Snaps") for more details on these and the other types of snaps: application snaps). 
 
-## Difference with Ubuntu Desktop
+## Differences to Ubuntu Desktop
 
 Snappy Ubuntu Core diverges from the standard model of Server and Desktop Ubuntu distributions, the key differences are summarized in the table below:
 

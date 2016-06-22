@@ -4,7 +4,7 @@ title: The kinds of snaps
 permalink: /snappy-dev/kinds_of_snaps/
 ---
 
-#The kinds of snaps
+# The kinds of snaps
 There are four kinds of snaps used in a snappy system:
 
  - Kernel
@@ -16,7 +16,7 @@ These snaps form the architecture of a snappy system as shown below.
 
 ![snap architecture](/docs-demo/media/snappy-dev/snap_architecture.png)
 
-##Kernel snaps
+## Kernel snaps
 
 The kernel makes up the core of all Linux systems, and it's the same with a snappy system.
 
@@ -26,7 +26,7 @@ Canonical publishes and maintains kernel snaps, offering reliability, trust, and
 
 You can also create custom kernel snaps for devices. The snap should be based on a Linux kernel with reasonable baseline versioning. However, aligned with the Ubuntu Core LTS default kernel version (currently 3.18) is recommended. This will ensure that devices built using custom kernel snaps benefit from shared information about the kernel, simplifying support and improving development timelines.
 
-##Gadget snaps
+## Gadget snaps
 
 Gadget snaps provide a way to define the specific features of a device. They may include definitions of:
 
@@ -39,7 +39,7 @@ Gadget snaps provide a way to define the specific features of a device. They may
 
 Canonical publishes some reference gadget snaps as well as gadget snaps for core Canonical models such as official Ubuntu Core VMs on various certified public clouds, as well as general purpose computing images for popular physical devices such as 64-bit x86 PCs and Raspberry Pi2.
 
-##OS snaps
+## OS snaps
 
 The OS snap is a repacked `rootfs` that contains `snapd`, just 'enough' to boot and power the system. Generally there will also be basic features such as network services, libc, and others. OS snaps will be architecture specific, but hardware platform agnostic. As such an OS snap should be able to run with any kernel that supports the minimum feature set required by the OS.
 
@@ -47,7 +47,7 @@ In every Canonical snappy system the OS snap contains Ubuntu Core (for more deta
 
 Canonical is the publisher of the Ubuntu Core OS snap, and it's available for x86 and ARM devices in both 32-bit and 64-bit forms. All devices of the same architecture running the same version of the OS use the same snap. The OS is thus exactly the same for every class of device, whether specialised or general, and developers who target software to a particular snap can be confident it will have access to the same software on any snappy device.
 
-##Application snaps
+## Application snaps
 
 Application snaps add everything else to a snappy system, they are what makes the system useful. They are normally created by the device developer or third-party developers offering additional features to the device.
 
