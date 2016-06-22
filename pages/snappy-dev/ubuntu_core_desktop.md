@@ -1,6 +1,6 @@
 ---
 layout: snappy-dev-default
-title: Ubuntu_core_desktop
+title: Ubuntu Core and Ubuntu Desktop
 permalink: /snappy-dev/ubuntu_core_desktop/
 ---
 # Ubuntu Core and Ubuntu Desktop 

@@ -42,6 +42,7 @@ snappy-dev-docs:
 	cp temp/navigation.html _includes/snappy-dev-navigation.html
 # removed '.bak' from the three sed statements (as -p doesn't seem to be an option as suggested)
 	sed -E -i 's/"(.*)\.md"/"{{ site.baseurl }}\/snappy-dev\/\1"/g' _includes/snappy-dev-navigation.html
+	sed -E -i 's/"(.*)\.md#/"{{ site.baseurl }}\/snappy-dev\/\1#/g' _includes/snappy-dev-navigation.html
 	sed -E -i 's/navigation.html/snappy-dev-navigation.html/g' _layouts/snappy-dev-default.html
 	sed -E -i 's/\.md//g' pages/snappy-dev/*
 	-rm -rf pages/snappy-dev/*.bak
