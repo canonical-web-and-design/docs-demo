@@ -1,6 +1,6 @@
 ---
 layout: snappy-dev-default
-title: 15_to_16_important_changes
+title: Important System Changes
 permalink: /snappy-dev/15_to_16_important_changes/
 ---
 # Important System Changes

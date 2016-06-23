@@ -1,21 +1,21 @@
 ---
 layout: snappy-dev-default
-title: Snap_metadata
+title: Snap Metadata
 permalink: /snappy-dev/snap_metadata/
 ---
-#Snap metadata
+# Snap Metadata
 Snaps are defined by two sets of metadata defined in YAML files:
 
  - snapcraft.yaml, which defines the snap to be built, usually with snapcraft. This file is placed in the root of the snap folder.
  - snap.yaml, which defines the content of the built snap and is 
 
-##Package metadata
+## Package Metadata
 (from https://developer.ubuntu.com/en/snappy/guides/meta/)
 This section describes the meta data of a snappy (.snap) package. All files are located under the meta/ directory.
 
 The following files are supported:
 
-###snap.yaml
+### snap.yaml
 This file describes the snap package and is the most important file for a snap package. The following keys are mandatory:
 
  - `name`: the name of the snap (only `^[a-z](?:-?[a-z0-9])*$` are allowed)

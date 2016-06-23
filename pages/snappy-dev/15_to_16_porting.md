@@ -1,14 +1,14 @@
 ---
 layout: snappy-dev-default
-title: 15_to_16_porting
+title: Porting 15.04 Snaps to 
 permalink: /snappy-dev/15_to_16_porting/
 ---
-# Porting 15.04 snaps to Series 16
+# Porting 15.04 Snaps to Series 16
 The snapcraft tool has undergone significant development this cycle and version 2.x has been released specifically to produce snaps targeting Series 16 devices.
 
 This chapter describes the changes that need to take place to take a Snapcraft configuration created using version 1.x and targeting 15.04 snappy systems, to version 2.x for Series 16.
 
-##The Snapcraft YAML File
+## The Snapcraft YAML File
 The Snapcraft YAML file can be considered as containing three functional sections:
 
  - Packaging Metadata
@@ -16,7 +16,7 @@ The Snapcraft YAML file can be considered as containing three functional section
  - Apps
 
 The majority of the package development work goes into defining the `parts` section as this defines the majority of the payload, how it's built and the source it's pulled from; the YAML schema here has changed relatively little. There are more alterations to the other two sections, however these should only require a small amount of time to update. 
-###Packaging Metadata
+### Packaging Metadata
 The metadata has removed the requirement to specify the vendor as information related to the owner of the snap is handled in the store. Fixed assets like icon files, licence files and desktop files do not need to declared in the YAML, but must be placed in specific locations under a top-level “setup” directory to be included. Here is a comparison of the packaging metadata section of the webcam-webui example:
 
 <table>
@@ -50,7 +50,7 @@ user@ubuntu:~/webcam-webui$ tree
 └── webcam-webui
 ```
 
-###Apps
+### Apps
 Series 16 reaffirmed the concept of snap packages shipping “apps” that are run on the device. The Snapcraft schema was updated to match this terminology meaning the keys “binaries” and “services” are now handled by the key “apps”.
 
 Programs to be launched by the user where previously declared as binaries. They now are defined as apps as in this example:
@@ -101,10 +101,11 @@ Other notables changes that apply to the definition of daemons are:
 
  - `stop` key has been replaced by `stop-command`
  - Addition of key `restart-command` with possible values of `on-success`, `on-failure`, `on-abnormal`, `on-abort`, and `always`.
-###Parts
+ 
+### Parts
 Any `parts` sections of YAML files written for 15.04 using Snapcraft 1.x will continue to work unchanged on Series 16 when built using Snapcraft 2.x. 
 
-##Snapcraft commands
+## Snapcraft commands
 The steps followed during the process of creating a snap were renamed for the 2.x release. The commands available to the snapcraft program were similarly renamed. The actions undertaken at each stage are directly comparable.
 
 <table>
@@ -176,7 +177,7 @@ Snapped webcam-webui_1_amd64.snap
 
 Once a snap file is produced successfully it can be installed on a system using `devmode`, as described below. Note however, that with no Interface support added the snap isn't yet suitable for submission to the store.
 
-##Using devmode to test on a classic Ubuntu system
+## Using devmode to test on a classic Ubuntu system
 As described above, Interfaces control when and how a snap can reach outside its sandboxed environment. Version 2.0 of the snappy framework adds a facility called `devmode`, which enable you to indicate, at snap install time, that the security mechanisms should not enforce confinement and instead just warn of events that would breach it. This is a useful way to analyse what Interfaces will be needed to allow correct operation of the app.
 
 After having built a snap on a classic Ubuntu system, a snap can be installed in `devmode` using the following command:
@@ -219,7 +220,7 @@ An app can then be executed in the normal fashion. The security system's audit o
     May 11 12:06:26 localhost kernel: [50173.606159] audit: type=1400 audit(1462964786.960:56): apparmor="ALLOWED" operation="open" profile="snap.hello-world.sh" name="/home/ubuntu/test-file2" pid=28553 comm="touch" requested_mask="wc" denied_mask="wc" fsuid=1000 ouid=1000 </code>
 
 
-##Example Projects
+## Example Projects
 The following links provide some examples of Snapcraft YAML files that have been transitioned from 15.04 to Series 16:
 
 <table>

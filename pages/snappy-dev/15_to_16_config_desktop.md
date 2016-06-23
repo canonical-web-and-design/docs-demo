@@ -1,9 +1,9 @@
 ---
 layout: snappy-dev-default
-title: 15_to_16_config_desktop
+title: Configuring Ubuntu Desktop for Snap Development
 permalink: /snappy-dev/15_to_16_config_desktop/
 ---
-# Configuring Ubuntu Desktop for snap development
+# Configuring Ubuntu Desktop for Snap Development
 
 This sections describes how to configure an Ubuntu 16.04 Desktop install for snapcraft package development. 
 

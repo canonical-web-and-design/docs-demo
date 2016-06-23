@@ -3,7 +3,7 @@ layout: snappy-dev-default
 title: Channels
 permalink: /snappy-dev/manage_device_channels/
 ---
-# Channels #
+# Channels 
 
 (from https://developer.ubuntu.com/en/snappy/guides/channels/)
 
@@ -13,7 +13,7 @@ Users of Ubuntu Core want to be up to date and have a reliable system. To allow 
  - **Channel**, which specifies the expectations for the quality of the
    software.
 
-## Ubuntu Core releases ##
+## Ubuntu Core releases 
 
 Starting from Ubuntu 16, Ubuntu Core will be published as part of the Ubuntu release process.
 
@@ -38,13 +38,13 @@ Channels defined the quality expectations for the release they offer:
  - **stable** - Rock solid release quality.
 
 Within each *release* (16 or rolling) a full set of channels (edge, beta, candidate, and stable) will be available, except for rolling/stable given that rolling always moves to the next release. 
-## Image promotion ##
+## Image promotion 
 Ubuntu snaps (Ubuntu core, gadget snaps and kernel snaps) are generated daily (often multiple images per day) and are thoroughly tested with automated and manual tests to ensure they comply with Ubuntu's QA standard. These daily images are distributed on the edge channel.
 
 ![Promotion of images from the edge channel to beta](/docs-demo/media/snappy-dev/Image_promotion.png)
 
 For these edge images to be release in the beta channel they have to comply with a more strict set of quality criteria, and pass a more stringent set of automated tests. Therefore only a subset of edge releases, those that pass additional test, make it to beta. 
-## Choosing a release and channel to track ##
+## Choosing a release and channel to track 
 The following table will make it easier to pick a release and channel combination to base your Ubuntu Core system on:
 
 Release | 'edge' channel | 'beta' channel | 'candidate' channel | 'stable' channel
@@ -65,7 +65,7 @@ Some examples:
    be adventurous, and take changes before CI approval, you would track
    rolling/edge instead.
 
-## Implementing your release and channel of choice ##
+## Implementing your release and channel of choice 
 To make use of your chosen channel/release combination you specify them during image installation, and by default, the most recent image available for the device is used. After you've chosen an image channel/release for installation, it will be used to provide Over-The-Air (OTA) upgrades to your device. Generally, once you have the right channel/release you won’t change it. However, you can switch channels at a later point using command line tools.
 
 Your choice of release and channel will be reflected in image URLs and your use of ubuntu-device-flash (e.g. http://cdimage.ubuntu.com/ubuntu-snappy/16/edge/ubuntu-16-snappy-armhf-bbb.img.xz).
