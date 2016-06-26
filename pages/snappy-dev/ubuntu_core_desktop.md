@@ -7,7 +7,7 @@ permalink: /snappy-dev/ubuntu_core_desktop/
 
 ## What is Ubuntu Core?
 
-Snappy Ubuntu Core is a lightweight, transactionally updated OS for devices targeted at the Internet of Things (IoT). It consists of a minimal rootfs and key services such as network. All other user features are added by installing additional snaps into a Snappy Ubuntu Core system or device. In simple terms, it can be though of as the smallest version of Ubuntu needed to support a system.
+Snappy Ubuntu Core is a lightweight, transactionally updated OS for devices targeted at the Internet of Things (IoT) space. It consists of a minimal `rootfs` and key services such as network. All other user features are added by installing additional snaps into a Snappy Ubuntu Core system or device. In simple terms, it can be though of as the smallest version of Ubuntu needed to support a system.
 
 Practical implementations of Snappy Ubuntu Core consist of:
 
@@ -15,7 +15,7 @@ Practical implementations of Snappy Ubuntu Core consist of:
 - Gabget snap
 - OS snap  
 
-Ubuntu Core is delivered in the OS snap (see [Kinds of Snaps](../kinds_of_snaps "Kinds of Snaps") for more details on these and the other types of snaps: application snaps). 
+Ubuntu Core is delivered in the OS snap (see [Kinds of Snaps](../kinds_of_snaps "Kinds of Snaps") for more details on these and the other types of snaps). 
 
 ## Differences to Ubuntu Desktop
 
@@ -29,4 +29,4 @@ Applications delivered in DEB packages or as snaps. | Applications delivered as 
  
 ## Release cycles
 
-New versions Ubuntu Core will be released every two years, with each release being referred to a series suffixed with the release year, so for example the current release is Series 16 and the next will be Series 18. 
+New versions Ubuntu Core will be released every two years, with each release being referred to a "series" suffixed with the release year, so for example the current release is Series 16 and the next will be Series 18. 
