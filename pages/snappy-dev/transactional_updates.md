@@ -4,39 +4,20 @@ title: Transactional Updates
 permalink: /snappy-dev/transactional_updates/
 ---
 # Transactional Updates
-The system for transactional updates has been much simplified in Ubuntu Core Series 16, replacing dual partition with a bootloader that is able to load n system images.
+Snappy Ubuntu Core Series 16 employs a transaction update system that relies on a bootloader that is able to load n system images.
 
-## Partition Layout
-The partition layout on snappy Ubuntu Core 16 has the following structure:
+## Installation
+Each snap -- be it a kernel, OS, gadget or application snap -- is delivered as a read only, squashfs file. When installed it's stored in a directory named with its version number and accompanied by a version number named writable space (and both are symlinked to `current`). In addition, the snap also gets a common multi-version writable space.
 
-![The partition layout in Ubuntu Core Series 16](/docs-demo/media/snappy-dev/partition_layout.png)
+## Update (Refresh)
+When the snap is updated (by the user running `$ snap refresh <snap name>`) the read-only image of the new version is stored in a new directory named after the new version, a new writable space is created, and the data from the previous version's writable space copied to the new one. Data in the common space isn't altered in any way. The new version's snap and writable area then are both symlinked to `current`. The process is illustrated below:
 
-This partition layout introduces a significant change from the previous release as it no longer use a dual partition schema for the system.
+![The lifecycle of a snap's update](/docs-demo/media/snappy-dev/transactional_updates.png)
 
-## Updating the System (Kernel, OS and Gadget snaps)
-Sequence for updating the system:
+For updated kernel, OS, and gadget snaps as well as application snaps run by a daemon, they becomes available the next time the system is booted. Updated application snap commands run the updated version the next time the command is run. 
 
-1. Run `$ sudo snappy update`.
-1. The device downloads the update Kernel, OS and/or Gadget snaps from the store.
-1. The previous versions of the snaps are moved to *restore* partition and the updated snaps are loaded to *boot* partition (writeable area copied in the same way?)
-1. The device is rebooted.
+## Rollback
 
-If the system updates work as expected the device restarts and follows its defined boot process. However, if the boot process fails the system (automatically?) roll back to the previous image by:
+A strenght of the snappy transactional update system is its ability to roll back if the new version of a snap proves faulty. The process is very simple, the `common` symlink for the snap and its writable data area are simply linked back to the old (previously working) version of the snap.
 
-1. Copying the previous versions of the Kernel, OS or Gadget snaps from the *restore* to the *boot* partition (overwriting the 'bad' snaps).
-2. Rebooting the device.  
-
-## Updating Application Snaps
-The process for updating application snaps is similar, except that a device reboot isn't required to complete the update (unless the snap is a service?)
-The sequence for updating an application snap is:
-
-1. Run `$ sudo snappy update`.
-1. The device downloads the updated snap from the store.
-2. If the snap is being run by a daemon (as service) the daemon is stopped (what about running apps/command?).
-2. The updated snap is identified as the current snap (how?).
-3. A copy of the snap's writable data is taken and associated with the new 'current' snap
-4. The snap's daemon (if any) is restated.
-
-As noted if the snap is a service its automatically restarted, otherwise the new snap becomes available when the user executes one of its commands.
-
-If there are issue with the updated snap then the previous version is restores simply by referring the system back to the previous snap file and writable area (how)?
+For application snaps the user does this with ??. While for the Kernel and OS snaps, if these fail to start correctly, the snappy system will automatically rollback these snaps.
