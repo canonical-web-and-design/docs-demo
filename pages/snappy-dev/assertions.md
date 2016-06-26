@@ -50,23 +50,23 @@ In order to validate an assertion, snappy will ensure that:
 The types of assertions used in the snappy system are:
 
 - Personal and institutional assertions based around a Snap Store account-id, which are used to describe the:
- - Account name.
- - Account's pubic keys.
- - Types of assertions the account keys can be used on. 
+   - Account name.
+   - Account's pubic keys.
+   - Types of assertions the account keys can be used on. 
 - Device assertions, that define the:
- - Device model.
- - Device serial number.
- - Certification status (whether a device model is guaranteed to get security and stability updates).
- - Ownership
+   - Device model.
+   - Device serial number.
+   - Certification status (whether a device model is guaranteed to get security and stability updates).
+   - Ownership
 - Snap assertions, that define the:
- - Snap name 
- - Snap's build
- - Stores a snap can be distributed in
- - Monetization model (whether the snap is free or paid)
- - Ownership
- - Gated updates status
+   - Snap name 
+   - Snap's build
+   - Stores a snap can be distributed in
+   - Monetization model (whether the snap is free or paid)
+   - Ownership
+   - Gated updates status
 - Store assertions, which define:
- - delectation of responsibility, such those of a publisher to a developer
+   - delectation of responsibility, such those of a publisher to a developer
 
 ## Roles within an assertion
 
