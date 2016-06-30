@@ -1,16 +1,17 @@
 ---
 layout: snappy-dev-default
-title: Snap_metadata
+title: Snap Metadata
 permalink: /snappy-dev/snap_metadata/
 ---
-Title| Snap Metadata
+
 # Snap Metadata
+
 Snaps are defined by two sets of metadata specified in YAML files:
 
 - snapcraft.yaml, which defines the snap to be built, usually with snapcraft. This file is placed in the root of the directory in which the snap is to be built (for more information see [??](../placeholder)).
 - snap.yaml, which defines the content of the built snap and is placed in the root of the compressed snap file.
 
-The content of the two YAML files is similar, however snapcraft.yaml includes a definition of the parts included in a snap (which the snap.yaml is missing) and the snap.yaml contains ??
+The content of the two YAML files is similar, however snapcraft.yaml includes a definition of the parts included in a snap and their build systems (which the snap.yaml is missing) and the snap.yaml contains details of the architecture(s) the snap is built for.
 
 ## Purpose of snap.yaml
 
@@ -35,6 +36,7 @@ Key | Required | Description
 <code>&nbsp;&nbsp;&nbsp;&lt;app name></code> | Yes | The name of the app or service.
 <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;command</code> | Yes |The command to start the application or service.
 <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;daemon</code>| Yes | The type of daemon that will run the device: `simple`, `forking`, `oneshot`, or `dbus`
+
     * `stop-command`: (Optional) The command to stop the service.
     * `stop-timeout`: (Optional) The time in seconds to wait for the service to stop
     * `restart-condition`: (Optional) Specifies the restart
