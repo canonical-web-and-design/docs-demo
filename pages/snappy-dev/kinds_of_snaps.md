@@ -5,22 +5,22 @@ permalink: /snappy-dev/kinds_of_snaps/
 ---
 
 # The kinds of snaps
-There are four kinds of snaps used in a snappy system:
+There are four kinds of snaps used in a Snapd System:
 
  - Kernel
  - Gadget
  - OS
  - Application
 
-These snaps form the architecture of a snappy system as shown below.
+These snaps form the architecture of a Snapd System as shown below.
 
 ![snap architecture](/docs-demo/media/snappy-dev/snap_architecture.png)
 
 ## Kernel snaps
 
-The kernel makes up the core of all Linux systems, and it's the same with a snappy system.
+The kernel makes up the core of all Linux systems, and it's the same with a Snapd System.
 
-The kernel snap contains a system’s hardware abstraction layer (HAL). This layer  consist of the kernel, drivers, firmware, and additional libraries such as OpenGL, OpenCL, and alike. In addition the sandboxing and confinement features are provided through the kernel and their effectiveness depend on the security maintenance level of that kernel.
+The kernel snap contains a system’s hardware abstraction layer (HAL). This layer  consists of the kernel, drivers, firmware, and additional libraries such as OpenGL, OpenCL, and alike. In addition the sandboxing and confinement features are provided through the kernel and their effectiveness depend on the security maintenance level of that kernel.
 
 Canonical publishes and maintains kernel snaps, offering reliability, trust, and security. 
 
@@ -37,7 +37,7 @@ Gadget snaps provide a way to define the specific features of a device. They may
 - which channel the device will load from by default. For example, a device may be made available for beta testing, so should pull snaps from the beta channel (see [Channels](../manage_device_channels "Channels") for more details).
 - details of the device hardware (for example that the device has a camera) and the interfaces (see [Interfaces](../interfaces "Interfaces")) available to access that hardware.
 
-Canonical publishes some reference gadget snaps as well as gadget snaps for core Canonical models such as official Ubuntu Core VMs on various certified public clouds, as well as general purpose computing images for popular physical devices such as 64-bit x86 PCs and Raspberry Pi2.
+Canonical publishes some reference gadget snaps as well as gadget snaps for core Canonical models, as well as general purpose computing images for popular physical devices, such as 64-bit x86 PCs and Raspberry Pi2.
 
 ## OS snaps
 
@@ -45,16 +45,20 @@ The OS snap is a repacked `rootfs` that contains `snapd`; just 'enough' to boot 
 
 In every Canonical snappy system the OS snap contains Ubuntu Core (for more details see [Ubuntu Core and Ubuntu Desktop](../ubuntu_core_desktop "Ubuntu Core and Ubuntu Desktop").
 
-Canonical is the publisher of the Ubuntu Core OS snap, and it's available for x86 and ARM devices in both 32-bit and 64-bit forms. All devices of the same architecture running the same version of the OS use the same snap. The OS is thus exactly the same for every class of device, whether specialised or general, and developers who target software to a particular snap can be confident it will have access to the same software on any snappy device.
+Canonical is the publisher of the Ubuntu Core OS snap. It's available for various architectures, such as x86 and ARM devices in both 32-bit and 64-bit forms. All devices of the same architecture running the same version of the OS use the same snap. The OS is thus exactly the same for every class of device, whether specialised or general, and developers who target software to a particular snap can be confident it will have access to the same software stack on any Snapd System device.
 
 ## Application snaps
 
-Application snaps add everything else to a snappy system, they are what makes the system useful. They are created by the device developer or third-party developers offering additional features to the device.
+Application snaps add everything else to a Snapd System, they are what makes the system useful. They are created by the device developer or third-party developers offering additional features to the device.
 
-An application snap can be run either from a command (that would normally be executed directly or indirectly by the device user) or by a daemon that executes at boot (so effectively offer a service within the device.) An application snap may also provide multiple commands and, to avoid namespace conflicts, commands are prefixed with the snap’s name, for example the following commands run a normal and debug version of a hello world snap:
+An application snap can be run either from a command (that would normally be executed directly or indirectly by the device user) or by a daemon that executes at boot (so effectively offer a service within the device). Generally snaps only need provide one command, which is run simply by refereing to the snap name, for example:
 
-- `$ my_hello_world.run`
-- `$ my_hello_world.debug`
+      `$ my_hello_world`
+
+An application snap may also provide multiple commands and, to avoid namespace conflicts, commands are prefixed with the snap’s name, for example the following commands run a normal and debug version of a hello world snap:
+
+    `$ my_hello_world.run`
+    `$ my_hello_world.debug`
 
 Application snaps can also provide [Interfaces](../interfaces "Interfaces") that expose features to other snaps.
 
