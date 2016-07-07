@@ -4,20 +4,23 @@ title: Transitioning Snaps from 15.04 to Series 16
 permalink: /snappy-dev/15_to_16_introduction/
 ---
 # Transitioning Snaps from 15.04 to Series 16
-During the Ubuntu 16.04 release cycle snappy Ubuntu Core has undergone significant refinement to ensure the following core features are delivered and stable such that they can be supported for the long term:
 
- - high levels of robustness
- - transactional updates and rollback of system components
- - strong application isolation for security and data protection
+During the Ubuntu 16.04 release cycle the Snapd System has undergone significant refinement. This is mainly to ensure the following core features can be supported for the long term:
 
-This process culminated in the release, tagged 2.0, of the snappy framework. This release produced not only an updated toolset, but also formalized the terminology to describe the features this provides.
+ - High levels of robustness.
+ - Transactional updates and rollback of system components.
+ - Strong application isolation for security and data protection.
+
+This process culminated in the release, tagged 2.0, of the Snapd System. This release produced not only an updated toolset, but also formalized the terminology to describe the features this provides.
 
 The following sections outline some key terms that the author of a snap package should be familiar with when working with snappy Ubuntu Core.
 
 ## Series
-In contrast to classic Ubuntu releases that happen twice each calendar year, the expectation is that  snappy Ubuntu Core will make one release per year that will be supported for a period of time and will receive only conservative changes. These versions are to be known as “series”. The numbering will be simplified to indicate just the year of release, that is 16, 18 etc. For clarity the version released this year will referred to as Ubuntu Core Series 16.
+
+In contrast to classic Ubuntu releases that happen twice each calendar year, the expectation is that Ubuntu Core will make one release per year that will be supported for a period of time and will receive only conservative changes. These versions are to be known as “series”. The numbering will be simplified to indicate just the year of release, that is 16, 18 etc. For clarity the version released this year will referred to as Ubuntu Core Series 16.
 
 ## The system in snaps (all-snaps)
+
 Beginning in Series 16, all software beyond the bootloader is distributed in the form of snap packages. This change, along with the introduction of [Interfaces](#interfaces "Interfaces"), which removes the need for “framework” snaps, means the valid snap types are now:
 
  - App

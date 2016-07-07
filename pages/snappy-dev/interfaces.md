@@ -14,7 +14,7 @@ Interface can either auto-connect or require the device user to explicitly enabl
 
     ` $ snap connect <snap>:<plug> <snap>:<slot>`
 
-In addition, future enhancements may provide for the gadget snap to connect snaps to interfaces -- so that preinstalled snap get their interfaces without the need for a manaul connection. 
+In addition, future enhancements may provide for the gadget snap to connect snaps to interfaces -- so that preinstalled snaps get their interfaces without the need for a manaul connection. 
 
 A complete list of interfaces is provided in [List of Interfaces](../interfaces_list "Interfaces list"). You can also discover a list of interfaces available on a system and the snaps using them with `$ snap interfaces` or use the command to get more specific information, including:
 
