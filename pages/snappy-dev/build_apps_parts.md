@@ -5,7 +5,7 @@ permalink: /snappy-dev/build_apps_parts/
 ---
 #Parts
 
-Parts are reusable components that are the main building block used to create snaps using Snapcraft. Parts have their own private space and lifecycle. Each part uses a plugin, which tells the part how to behave and what to do with the information inside it. Parts  are analogous to a library that you would call in your program. There are three types of parts:
+Parts are reusable components that are the main building block used to create snaps using Snapcraft. Parts have their own private space and lifecycle. Each part uses a plugin, which tells the part how to behave and what to do with the information inside it. Parts are analogous to a library that you would call in your program. There are three types of parts:
 
 - Parts from local source that use local files on your machine. For example (as seen in `10-SNAPS/01-service/`<sup>1</sup>):
 
@@ -24,9 +24,13 @@ Parts are reusable components that are the main building block used to create sn
            plugin: autotools
             source: http://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz
 
-- third type?
+- Parts built and shared by others through the [Ubuntu Wiki](https://wiki.ubuntu.com/snapcraft/parts). For example, using a part for curl defined in the wiki:
 
-To see parts built and shared by others — [https://wiki.ubuntu.com/Snappy/Parts](https://wiki.ubuntu.com/Snappy/Parts)
+        parts:
+            client:
+               plugin: autotools
+               source: .
+               after: [curl]
 
 ## Defining parts in snapcraft.yaml
 
@@ -34,11 +38,11 @@ The snapcraft.yaml key `parts` defines a map of the parts you want to include in
 
 Key | Type | Purpose
 :----- | :---- | :-----
-`plugin` | (string) | Specifies the plugin name that will manage this part.  Snapcraft will pass it all the other user-specified part options. <br />If the plugin is not defined the [wiki](../https://wiki.ubuntu.com/Snappy/Parts), will be searched for the part, the local values defined in the part will be used to compose the final part.<br />For more information on parts, see [Building Your Own Part](build_apps_plugin).
-`after` | (list of strings) | Specifies any parts that should be built before this part is.  This is useful when a part needs a library or build tool built by another part. <br />If the part defined in `after` is not defined locally, the part will be search for in the [wiki](https://wiki.ubuntu.com/Snappy/Parts).<br />If a part is supposed to run after another, the prerequisite part should have been staged before the part can start its lifecycle.
+`plugin` | (string) | Specifies the plugin that will manage this part.  Snapcraft will pass the plugin all the other user-specified part options, those options defined with the other keys below. <br />There are three way in which the plugin can be defined: <ul><li>A plugin name, to use a build-in plug-in.</li><li>A local path, for example `parts/plugins/x-plugin_name.py`, to use a local (custom defined) plugin. For more information, see [Building Your Own Plugin](../build_apps_plugin).</li><li>If `plugin` is not defined, the plugin defined for the part in the [Ubuntu Wiki](https://wiki.ubuntu.com/snapcraft/parts).</li></ul>
+`after` | (list of strings) | Specifies any parts that should be built before this part, which Snapcraft then stages before trying to build this part.  This is useful when a part needs a library or build tool built by another part. <br />If the part defined in `after` is not defined locally, the part will be search for in the [wiki](https://wiki.ubuntu.com/snapcraft/parts).
 `stage-packages` | (list of strings) | A list of Ubuntu packages to use that are needed to support the part creation.
 `filesets` | (yaml subsection) | A dictionary with filesets, the key being a recognizable user defined string and its value a list of strings of files to be included or excluded. Globbing is achieved with * for either inclusions or exclusion. Exclusions are denoted by a -.<br />Globbing is computed from the private sections of the part.
-`organize` | (yaml subsection) | A dictionary exposing replacements, the key is the internal name whilst the value the exposed name, filesets will refer to the exposed named applied after organization is applied.
+`organize` | (yaml subsection) | A dictionary exposing replacements. The key is the internal name while the value the exposed (replacement) name (for example, `source_name: map_name`). **Note**: `filesets` refer to the exposed names of files, after the organization has been applied.
 `stage` | (list of strings) | A list of files from a part’s installation to expose in stage. Rules applying to the list here are the same as those of filesets. Referencing of fileset keys is done with a $ prefixing the fileset key, which will expand with the value of such key.
 snap | (list of strings) | A list of files from a part’s installation to expose in the snap. Rules applying to the list here are the same as those of filesets. Referencing of fileset keys is done with a $ prefixing the fileset key, which will expand with the value of such key.
 
@@ -165,7 +169,7 @@ In this part definition:
 
 ## Sharing your parts with other developers
 
-If you would like to publish your own parts, you can contribute them on the [Ubuntu wiki](https://wiki.ubuntu.com/snapcraft/parts).
+If you would like to publish your own parts, you can contribute them on the [Ubuntu Wiki](https://wiki.ubuntu.com/snapcraft/parts).
 
 -------
 (1) Examples on this page are from the Snapcraft tour, which is installed by running `$ sudo snapcraft tour`.
